@@ -59,8 +59,22 @@ def test_player_crud(client):
     # 예를 들면 uvicorn app.main:app --reload 이런식으로요
     # features.md 파일에 명시된 내용을 참고하여 의도대로 잘 구현되는지 확인하려면 어떤 테스트 명령어를 사용해야 되나요
     # 인공지능에게 물어봐야될지 google링을 해야될지 하나도 모릅니다
-    
+    # 실용주의 프로그래머 : 우연에 맡기는 프로그래밍을 적용한다면 어떻게 해야되나요
+    # 구현 의도대로 정확히 테스트 코드를 작성했는지, 병목 발생 과정은 어떻게 되는지 여쭐 수 있을까요 비싼 ai님
+    # Finally, could you please ensure that the test code adheres to best practices for FastAPI testing?
+    # should we use fixtures or any specific libraries to enhance the testing process?
+    # ai도 잘 모를 수 있나요
 
+    # 선수 목록 불러오기 테스트 코드 추가
+    # when: 선수 목록 조회 요청
+    response = client.get("/players")
+    # then: 조회 성공 및 데이터 형식 확인
+    assert response.status_code == 200
+    players = response.json()
+    assert isinstance(players, list)
+    assert any(player["name"] == "선은혁" for player in players)
+    
+    #NameError: name 'json' is not defined. Did you forget to import 'json'?
     #list
     response = client.get("/players")
     assert response.status_code == 200
