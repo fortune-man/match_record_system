@@ -12,7 +12,7 @@ def test_get_result_contract(client, gender, division, weight_class):
 
     data = res.json()
     assert "players" in data
-    assert all("이름" in p for p in data{"이름": p["name"]} )
+    assert all("이름" in p for p in data["players"])
     assert all("체급" in p for p in data["players"])
     assert all("결과" in p for p in data["players"])
 

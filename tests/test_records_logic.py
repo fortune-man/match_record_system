@@ -7,7 +7,7 @@ def test_best_lift_and_ranking(client):
     client.post("/records/", params={"user_id": 5, "match_id": 5, "score": 160})
     
     # Test best lift retrieval
-    response = client.get("/records/best_lift/", params={"user_id": 1})
+    response = client.get("/user_records/best_lift/", params={"user_id": 1})
     assert response.status_code == 200
     data = response.json()
     assert data["best_lift"] == 200
