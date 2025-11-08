@@ -1,4 +1,5 @@
 # 핵심 api 입출력
+# 선수 등록이 정상적으로 동작한다.
 def test_players_contract(client):
     response = client.post("/players", json={"id" : 1, "name" : "홍길동" , "category" : "중등부", "gender" : "남", "weight_class" : "67kg"}) 
     assert response.status_code == 200
